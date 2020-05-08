@@ -1,4 +1,5 @@
 FROM arm32v6/alpine:3.11.6
+LABEL maintainer="https://github.com/mendhak/docker-arm32v6-influxdb"
 
 EXPOSE 8086
 
