@@ -19,6 +19,7 @@ services:
             - 8086:8086
         volumes: 
             - ./influxdbdata:/root/.influxdb/data/
+            - ./influxdbbackups:/tmp/backups/
 
 ```
 Then run it:
@@ -58,6 +59,19 @@ Generating a config file:
 ```
 docker run --rm mendhak/arm32v6-influxdb influxd config 
 ```
+
+
+Create a DB:
+
+    docker exec -it influxdb influx -execute "CREATE DATABASE test"
+
+Backup DBs:
+
+    docker exec -it influxdb influxd backup -portable /backups/
+
+Restore DBs:
+
+    docker exec -it influxdb influxd restore -portable /backups/
 
 
 
