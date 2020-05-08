@@ -4,8 +4,16 @@ InfluxDB Docker image for Raspberry Pi Zero.  The Raspberry Pi Zero is ARM32v6, 
 
 ### Running it
 
+Use docker-compose:
 
-Running InfluxDB:
+```
+docker-compose up -d
+```
+
+It's listening on :8086 by default. Try a `curl localhost:8086/health` 
+
+
+Running directly:
 
 ```
 docker run -d --name=influxdb -p 8086:8086 -v $PWD/influxdbdata:/root/.influxdb/data/ mendhak/arm32v6-influxdb
