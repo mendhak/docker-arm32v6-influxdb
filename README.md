@@ -6,6 +6,23 @@ InfluxDB Docker image for Raspberry Pi Zero.  The Raspberry Pi Zero is ARM32v6, 
 
 Use docker-compose:
 
+Create a `docker-compose.yml`:
+
+```
+version: '3.7'
+
+services: 
+    influxdb:
+        image: mendhak/arm32v6-influxdb
+        container_name: influxdb
+        ports: 
+            - 8086:8086
+        volumes: 
+            - ./influxdbdata:/root/.influxdb/data/
+
+```
+Then run it:
+
 ```
 docker-compose up -d
 ```
